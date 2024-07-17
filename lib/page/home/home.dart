@@ -1,10 +1,13 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:onlineappstore/page/auth/auth_page.dart';
 import 'package:onlineappstore/page/cart/cart.dart';
 import 'package:onlineappstore/page/home/widget/homecategory.dart';
 import 'package:onlineappstore/page/product/playlistproduct.dart';
 import 'package:onlineappstore/providers/auth_provider.dart';
+import 'package:onlineappstore/providers/cart_provider.dart';
 import 'package:provider/provider.dart';
+import 'package:badges/badges.dart' as badges;
 
 import '../../config/const.dart';
 import 'widget/homeslider.dart';
@@ -45,12 +48,22 @@ class Home extends StatelessWidget {
       appBar: AppBar(
         title: Text('Shopping mall'),
         actions: [
-          IconButton(
-            icon: const Icon(Icons.shopping_cart),
-            tooltip: 'Open shopping cart',
-            onPressed: () {
-              Navigator.pushNamed(context, CartPage.routerName);
-            },
+          Padding(
+            padding: EdgeInsets.symmetric(horizontal: 10),
+            child: Consumer<CartProvider>(
+              builder: (context , value , child){
+                return badges.Badge(
+                  badgeContent: Text('${value.items.length}'),
+                  position: badges.BadgePosition.topEnd(top: -15, end: -7),
+                  child: InkWell(
+                    onTap: (){
+                      Navigator.pushNamed(context, CartPage.routerName);
+                    },
+                    child: Icon(Icons.shopping_cart),
+                  ),
+                );
+              }
+            )
           )
         ],
       ),

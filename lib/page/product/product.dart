@@ -1,5 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:onlineappstore/providers/cart_provider.dart';
+import 'package:provider/provider.dart';
 import 'package:readmore/readmore.dart';
 import '../../config/const.dart';
 
@@ -59,6 +61,7 @@ class _ProductPageState extends State<ProductPage> {
                           Row(children: [
                             InkWell(
                               onTap: (){
+                                Provider.of<CartProvider>(context, listen: false).addCart(product.id, product.image, product.name, product.price, num, product.summary);
                               },
                               child: Container(
                                 height: 50,

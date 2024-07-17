@@ -6,6 +6,8 @@ import 'package:onlineappstore/page/product/product.dart';
 import 'package:onlineappstore/providers/product_provider.dart';
 import 'package:provider/provider.dart';
 
+import '../../providers/cart_provider.dart';
+
 class PlaylistProduct extends StatelessWidget {
   const PlaylistProduct({super.key});
 
@@ -33,7 +35,9 @@ class PlaylistProduct extends StatelessWidget {
                   title: Text(data[index].name),
                   subtitle: Text(intl.NumberFormat.simpleCurrency(locale: 'vi',decimalDigits: 3).format(data[index].price),style: TextStyle(fontSize: 12),),
                   trailing: InkWell(
-                      onTap: (){},
+                      onTap: (){
+                        Provider.of<CartProvider>(context, listen: false).addCart(data[index].id, data[index].image, data[index].name, data[index].price, 1, data[index].summary.toString());
+                      },
                       child: Icon(Icons.add_shopping_cart)),
                 )
                     ,

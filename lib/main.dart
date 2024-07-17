@@ -5,6 +5,7 @@ import 'package:onlineappstore/page/category/category.dart';
 import 'package:onlineappstore/page/home/home.dart';
 import 'package:onlineappstore/page/product/product.dart';
 import 'package:onlineappstore/providers/auth_provider.dart';
+import 'package:onlineappstore/providers/cart_provider.dart';
 import 'package:onlineappstore/providers/category_provider.dart';
 import 'package:onlineappstore/providers/product_provider.dart';
 import 'package:onlineappstore/providers/slider_provider.dart';
@@ -18,6 +19,7 @@ void main(List<String> args) {
           ChangeNotifierProvider(create: (_) => CategoryProvider()),
           ChangeNotifierProvider(create: (_) => AuthProvider()),
           ChangeNotifierProvider(create: (_) => ProductProvider()),
+          ChangeNotifierProvider(create: (_) => CartProvider()),
         ],
         child: Consumer<AuthProvider>(
           builder: (context, auth, child) {
