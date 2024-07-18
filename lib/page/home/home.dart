@@ -67,44 +67,50 @@ class Home extends StatelessWidget {
           )
         ],
       ),
-      body: Column(
-        children: [
-          HomeSlider(),
-          Padding(
-            padding: EdgeInsets.symmetric(horizontal: 20),
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
-                Text(
-                  'Danh muc san pham',
-                  style: styleTileItem,
+      body: SingleChildScrollView(
+        scrollDirection: Axis.vertical,
+        child: Container(
+          height: MediaQuery.of(context).size.height,
+          child: Column(
+            children: [
+              HomeSlider(),
+              Padding(
+                padding: EdgeInsets.symmetric(horizontal: 20),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    Text(
+                      'Danh muc san pham',
+                      style: styleTileItem,
+                    ),
+                    Text('so luong (4)'),
+                  ],
                 ),
-                Text('so luong (4)'),
-              ],
-            ),
-          ),
-          SizedBox(
-            height: 10,
-          ),
-          HomeCategory(),
-          Padding(
-            padding: EdgeInsets.symmetric(horizontal: 20),
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
-                Text(
-                  'San pham noi bat',
-                  style: styleTileItem,
+              ),
+              SizedBox(
+                height: 10,
+              ),
+              HomeCategory(),
+              Padding(
+                padding: EdgeInsets.symmetric(horizontal: 20),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    Text(
+                      'San pham noi bat',
+                      style: styleTileItem,
+                    ),
+                    Text('so luong (4)'),
+                  ],
                 ),
-                Text('so luong (4)'),
-              ],
-            ),
+              ),
+              SizedBox(
+                height: 10,
+              ),
+              PlaylistProduct(),
+            ],
           ),
-          SizedBox(
-            height: 10,
-          ),
-          PlaylistProduct(),
-        ],
+        ),
       ),
       drawer: Drawer(
         child: Container(

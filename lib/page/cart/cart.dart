@@ -74,9 +74,7 @@ class _CartPageState extends State<CartPage> {
                                        width: 30,
                                        child: OutlinedButton(
                                          onPressed: () {
-                                           setState(() {
-                                             data[index].quantity ++;
-                                           });
+                                          Provider.of<CartProvider>(context, listen: false).increase(data[index].id);
                                          },
                                          style: OutlinedButton.styleFrom(
                                            padding: EdgeInsets.zero,
@@ -91,13 +89,7 @@ class _CartPageState extends State<CartPage> {
                                        width: 30,
                                        child: OutlinedButton(
                                          onPressed: () {
-                                           setState(() {
-                                             if(data[index].quantity > 1)
-                                             {data[index].quantity --;}
-                                             else {
-                                               //
-                                             }
-                                           });
+                                           Provider.of<CartProvider>(context, listen: false).decrease(data[index].id);
                                          },
                                          style: OutlinedButton.styleFrom(
                                            padding: EdgeInsets.zero,
