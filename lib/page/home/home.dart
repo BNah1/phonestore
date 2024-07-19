@@ -12,10 +12,22 @@ import 'package:badges/badges.dart' as badges;
 import '../../config/const.dart';
 import 'widget/homeslider.dart';
 
-class HomePage extends StatelessWidget {
+class HomePage extends StatefulWidget {
   const HomePage({Key? key}) : super(key: key);
   static const routerName = '/';
 
+  @override
+  State<HomePage> createState() => _HomePageState();
+}
+
+class _HomePageState extends State<HomePage> {
+
+  @override
+  void didChangeDependencies() {
+    // TODO: implement didChangeDependencies
+    Provider.of<AuthProvider>(context).checkTimeExpires();
+    super.didChangeDependencies();
+  }
   @override
   Widget build(BuildContext context) {
     return Consumer<AuthProvider>(

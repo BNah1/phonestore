@@ -47,6 +47,7 @@ class CartProvider extends ChangeNotifier {
                   summary: summary));
       notifyListeners();
     }
+
   }
 
   void increase(int productID, [int quantity = 1]) {
@@ -74,6 +75,22 @@ class CartProvider extends ChangeNotifier {
     }
 
     notifyListeners();
+  }
+
+  int get totalPrice {
+    int total = 0;
+    items.forEach((key, cartItem) {
+      total += cartItem.price * cartItem.quantity;
+    });
+    return total;
+  }
+
+  int get totalQuantity {
+    int total = 0;
+    items.forEach((key, cartItem) {
+      total += cartItem.quantity;
+    });
+    return total;
   }
 }
 
