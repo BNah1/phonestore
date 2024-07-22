@@ -12,6 +12,12 @@ final styleTileItem = TextStyle(
   fontWeight: FontWeight.bold,
 );
 
+final styleTileAppbar = TextStyle(
+  color: Colors.black,
+  fontSize: 25,
+  fontWeight: FontWeight.bold,
+);
+
 final styleTile = TextStyle(
   color: Colors.black,
   fontSize: 17,

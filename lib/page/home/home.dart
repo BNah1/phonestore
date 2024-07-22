@@ -10,6 +10,7 @@ import 'package:provider/provider.dart';
 import 'package:badges/badges.dart' as badges;
 
 import '../../config/const.dart';
+import '../order/list_order.dart';
 import 'widget/homeslider.dart';
 
 class HomePage extends StatefulWidget {
@@ -58,7 +59,7 @@ class Home extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Shopping mall'),
+        title: Text('Shopping mall', style: styleTileAppbar,),
         actions: [
           Padding(
             padding: EdgeInsets.symmetric(horizontal: 10),
@@ -127,7 +128,7 @@ class Home extends StatelessWidget {
       drawer: Drawer(
         child: Container(
           padding: EdgeInsets.symmetric(horizontal: 20, vertical: 30),
-          color: Colors.amber,
+          color: Colors.grey,
           child: Column(
             children: [
               Container(
@@ -151,9 +152,11 @@ class Home extends StatelessWidget {
                         onTap: () {},
                       ),
                       ListTile(
-                        leading: Icon(Icons.edit),
-                        title: Text('Edit'),
-                        onTap: () {},
+                        leading: Icon(Icons.library_add_check),
+                        title: Text('Don hang da mua'),
+                        onTap: () {
+                          Navigator.popAndPushNamed(context, ListOrder.routerName);
+                        },
                       ),
                       ListTile(
                         leading: Icon(Icons.logout),

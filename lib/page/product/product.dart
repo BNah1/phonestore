@@ -25,7 +25,7 @@ class _ProductPageState extends State<ProductPage> {
    Scaffold(
       backgroundColor: Colors.lightBlueAccent,
       appBar: AppBar(
-        title: Text(product.name),
+        title: Text(product.name, style: styleTileAppbar,),
       ),
       body: SingleChildScrollView(
         child: Column(
@@ -62,7 +62,9 @@ class _ProductPageState extends State<ProductPage> {
                             InkWell(
                               onTap: (){
                                 Provider.of<CartProvider>(context, listen: false).addCart(product.id, product.image, product.name, product.price, num, product.summary);
-                              },
+                                ScaffoldMessenger.of(context).showSnackBar(
+                                    SnackBar(content: Text('Đã thêm ${product.name} vào giỏ hàng ')));
+                                },
                               child: Container(
                                 height: 50,
                                 width: 58,

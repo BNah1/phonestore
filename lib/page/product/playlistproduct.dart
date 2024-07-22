@@ -37,7 +37,9 @@ class PlaylistProduct extends StatelessWidget {
                   trailing: InkWell(
                       onTap: (){
                         Provider.of<CartProvider>(context, listen: false).addCart(data[index].id, data[index].image, data[index].name, data[index].price, 1, data[index].summary.toString());
-                      },
+                        ScaffoldMessenger.of(context).showSnackBar(
+                             SnackBar(content: Text('Đã thêm ${data[index].name} vào giỏ hàng ')));
+                        },
                       child: Icon(Icons.add_shopping_cart)),
                 )
                     ,

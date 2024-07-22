@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:onlineappstore/config/const.dart';
 import 'package:onlineappstore/page/category/widget/category_body.dart';
 
 class CategoryPage extends StatelessWidget {
@@ -11,7 +12,7 @@ class CategoryPage extends StatelessWidget {
         ModalRoute.of(context)!.settings.arguments as Map<String, dynamic>;
     return Scaffold(
       appBar: AppBar(
-        title: Text('Cac san pham ' + arg['name']),
+        title: Text('Các sản phẩm ' + arg['name'], style: styleTileAppbar,),
       ),
       body: CategoryBody(),
     );

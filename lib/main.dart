@@ -3,6 +3,7 @@ import 'package:onlineappstore/page/auth/auth_page.dart';
 import 'package:onlineappstore/page/cart/cart.dart';
 import 'package:onlineappstore/page/category/category.dart';
 import 'package:onlineappstore/page/home/home.dart';
+import 'package:onlineappstore/page/order/list_order.dart';
 import 'package:onlineappstore/page/product/product.dart';
 import 'package:onlineappstore/providers/auth_provider.dart';
 import 'package:onlineappstore/providers/cart_provider.dart';
@@ -35,6 +36,7 @@ void main(List<String> args) {
                 ProductPage.routerName: (context) => const ProductPage(),
                 AuthPage.routerName: (context) => AuthPage(),
                 CartPage.routerName: (context) => CartPage(),
+                ListOrder.routerName: (context) => ListOrder(),
               },
             );
           },

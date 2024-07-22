@@ -47,7 +47,6 @@ class CartProvider extends ChangeNotifier {
                   summary: summary));
       notifyListeners();
     }
-
   }
 
   void increase(int productID, [int quantity = 1]) {
@@ -76,6 +75,12 @@ class CartProvider extends ChangeNotifier {
 
     notifyListeners();
   }
+
+  void removeItems() {
+    items = {};
+    notifyListeners();
+  }
+
 
   int get totalPrice {
     int total = 0;
