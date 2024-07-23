@@ -25,7 +25,7 @@ class ProductProvider extends ChangeNotifier {
 
   Future<Product> getProduct(String id) async {
     final url =
-        'https://apiforlearning.zendvn.com/api/mobile/products/$id';
+        'https://shopapp-5911e-default-rtdb.firebaseio.com/product/$id.json';
     try {
       final response = await http.get(Uri.parse(url));
       final jsonData = jsonDecode(response.body);
@@ -35,6 +35,5 @@ class ProductProvider extends ChangeNotifier {
       return Future.error(Exception('NoData'));
     }
   }
-
 
 }

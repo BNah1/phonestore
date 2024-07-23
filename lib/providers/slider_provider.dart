@@ -7,7 +7,7 @@ import '../model/slider_model.dart';
 
 class SliderProvider extends ChangeNotifier {
   Future<List<Sli>> getSlider() async {
-    final url = 'https://apiforlearning.zendvn.com/api/mobile/sliders';
+    final url = 'https://shopapp-5911e-default-rtdb.firebaseio.com/slide.json';
     try {
       final response = await http.get(Uri.parse(url));
       final jsonData = jsonDecode(response.body);

@@ -8,7 +8,7 @@ import '../model/product_model.dart';
 
 class CategoryProvider extends ChangeNotifier {
   Future<List<Category>> getCategory() async {
-    final url = 'https://apiforlearning.zendvn.com/api/mobile/categories';
+    final url = 'https://shopapp-5911e-default-rtdb.firebaseio.com/categories.json';
     try {
       final response = await http.get(Uri.parse(url));
       final jsonData = jsonDecode(response.body);
@@ -23,7 +23,7 @@ class CategoryProvider extends ChangeNotifier {
 
   Future<List<Product>> getProDuctCategory(int id) async {
     final url =
-        'https://apiforlearning.zendvn.com/api/mobile/categories/$id/products';
+        'https://shopapp-5911e-default-rtdb.firebaseio.com/productwithid/$id.json';
     try {
       final response = await http.get(Uri.parse(url));
       final jsonData = jsonDecode(response.body);
